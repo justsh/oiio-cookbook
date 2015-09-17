@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: 12.3.0
+
+platforms:
+  - name: ubuntu-12.04
+  # - name: ubuntu-12.04-chef-local
+  #   # Use the following driver and box instead of the auto chef_omnibus_require
+  #   # This local box is the same, just with chef already installed to save time
+  #   driver:
+  #     box: opscode-ubuntu-12.04-chef-local
+
+suites:
+  - name: default
+    run_list:
+      - recipe[oiio::default]
+    attributes:
+  - name: build
+    run_list:
+      - recipe[oiio::build]
+    attributes:
