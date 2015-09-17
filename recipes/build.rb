@@ -11,7 +11,7 @@ include_recipe 'build-essential::default'
 # https://sites.google.com/site/openimageio/checking-out-and-building-openimageio
 
 node["oiio"]["package_dependencies"].each do |p|
-  package p
+    package p
 end
 
 compile_command = "make"
